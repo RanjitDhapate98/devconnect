@@ -4,7 +4,7 @@
 //  Change BASE_URL when you deploy to Render.
 // ============================================================
 
-export const BASE_URL = "http://localhost:5000";
+export const BASE_URL = "https://devconnect-backend-4zpl.onrender.com";
 
 // Helper: build headers with JWT token
 const authHeaders = () => ({

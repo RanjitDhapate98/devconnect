@@ -33,24 +33,25 @@ function GridBackground() {
       }} />
 
       {/* Lottie animation — lives inside background, fixed position, never shifts on resize */}
-      <div style={{
-        position: "fixed",
-        left: "40%",
-        top: "20%",
-        transform: "translate(calc(-50% + 5px), calc(-50% - 1040px))",
-        width: 520,
-        height: 520,
-        pointerEvents: "none",
-        animation: "floatAnim 4s ease-in-out infinite",
-        filter: "drop-shadow(0 0 32px rgba(0,255,135,0.18))",
-      }}>
-        <Lottie
-          animationData={animationData}
-          loop={true}
-          autoplay={true}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
+    <div style={{
+  position: "fixed",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "clamp(250px, 40vw, 520px)",
+  height: "clamp(250px, 40vw, 520px)",
+  pointerEvents: "none",
+  animation: "floatAnim 4s ease-in-out infinite",
+  filter: "drop-shadow(0 0 32px rgba(0,255,135,0.18))",
+  opacity: 0.9
+}}>
+  <Lottie
+    animationData={animationData}
+    loop={true}
+    autoplay={true}
+    style={{ width: "100%", height: "100%",filter: "brightness(1.2) saturate(1.2)" }}
+  />
+</div>
     </div>
   );
 }
