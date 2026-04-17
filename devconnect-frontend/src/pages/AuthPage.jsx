@@ -17,8 +17,8 @@ function GridBackground() {
       </svg>
       {[
         { size: 500, x: "-10%", y: "-20%", color: "rgba(0,255,135,0.06)", dur: 12 },
-        { size: 400, x: "60%",  y: "50%",  color: "rgba(0,212,255,0.05)", dur: 16 },
-        { size: 300, x: "80%",  y: "-10%", color: "rgba(0,255,135,0.04)", dur: 10 },
+        { size: 400, x: "60%", y: "50%", color: "rgba(0,212,255,0.05)", dur: 16 },
+        { size: 300, x: "80%", y: "-10%", color: "rgba(0,255,135,0.04)", dur: 10 },
       ].map((o, i) => (
         <div key={i} style={{
           position: "absolute", left: o.x, top: o.y,
@@ -33,25 +33,29 @@ function GridBackground() {
       }} />
 
       {/* Lottie animation — lives inside background, fixed position, never shifts on resize */}
-    <div style={{
-  position: "fixed",
-  left: "50%",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "clamp(250px, 40vw, 520px)",
-  height: "clamp(250px, 40vw, 520px)",
-  pointerEvents: "none",
-  animation: "floatAnim 4s ease-in-out infinite",
-  filter: "drop-shadow(0 0 32px rgba(0,255,135,0.18))",
-  opacity: 0.9
-}}>
-  <Lottie
-    animationData={animationData}
-    loop={true}
-    autoplay={true}
-    style={{ width: "100%", height: "100%",filter: "brightness(1.2) saturate(1.2)" }}
-  />
-</div>
+      <div style={{
+        position: "fixed",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        width: "clamp(260px, 35vw, 520px)",
+        height: "clamp(260px, 35vw, 520px)",
+        pointerEvents: "none",
+        zIndex: 0,
+        animation: "floatAnim 4s ease-in-out infinite"
+      }}>
+        <Lottie
+          animationData={animationData}
+          loop
+          autoplay
+          style={{
+            width: "100%",
+            height: "100%",
+            filter: "brightness(1.3) saturate(1.4)",
+            mixBlendMode: "screen"
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -152,13 +156,13 @@ function SubmitBtn({ loading, label, onClick }) {
 }
 
 export default function AuthPage({ mode: initialMode }) {
-  const [mode, setMode]       = useState(initialMode || "login");
+  const [mode, setMode] = useState(initialMode || "login");
   const [animOut, setAnimOut] = useState(false);
-  const { login, register }   = useAuth();
-  const navigate              = useNavigate();
-  const [form, setForm]       = useState({ name: "", email: "", password: "", confirm: "" });
-  const [errors, setErrors]   = useState({});
-  const [apiErr, setApiErr]   = useState("");
+  const { login, register } = useAuth();
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ name: "", email: "", password: "", confirm: "" });
+  const [errors, setErrors] = useState({});
+  const [apiErr, setApiErr] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -218,7 +222,10 @@ export default function AuthPage({ mode: initialMode }) {
         @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes fadeDown { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(-14px); } }
         @keyframes glitch { 0%,100%{transform:translate(0)} 20%{transform:translate(-2px,2px)} 60%{transform:translate(1px,-1px)} }
-        @keyframes floatAnim { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-12px);} }
+      @keyframes floatAnim {
+  0%,100% { transform: translate(-50%, -50%) translateY(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-12px); }
+}
         .form-enter { animation: fadeUp 0.3s cubic-bezier(.22,1,.36,1) forwards; }
         .form-exit  { animation: fadeDown 0.25s ease forwards; }
 
@@ -260,7 +267,7 @@ export default function AuthPage({ mode: initialMode }) {
           </div>
 
           {/* Code decoration */}
-          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: "#1a2a1a", lineHeight: 2, userSelect: "none" }}>
+          <div style={{ fontFamily: "'Space Mono', monospace", fontSize: 12, color: "rgba(0,255,135,0.08)", lineHeight: 2, userSelect: "none" }}>
             <div><span style={{ color: "#1a3020" }}>const</span> dev = <span style={{ color: "#1a3020" }}>await</span> DevConnect.<span style={{ color: "#00ff87", opacity: 0.2 }}>auth</span>(credentials);</div>
             <div>dev.socket.emit(<span style={{ color: "#1a3020" }}>'join'</span>, userId);</div>
             <div>dev.on(<span style={{ color: "#1a3020" }}>'newNotification'</span>, handler);</div>
