@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Build folders
+dist/
+build/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
