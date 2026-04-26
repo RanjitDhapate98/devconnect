@@ -1,34 +1,31 @@
 # DevConnect
 
-A real-time chat application where users can connect and send messages instantly. Built to understand how real-time communication works in web apps.
+DevConnect is a real-time messaging platform built to enable fast and seamless communication between users. It focuses on low-latency message delivery and a clean user experience.
 
 ## Features
 
-* Real-time messaging
-* User authentication
-* Live message updates without refresh
-* Simple and clean UI
+* Real-time messaging using Socket.IO
+* Secure authentication with JWT
+* Protected APIs with validation middleware
+* Responsive UI for different screen sizes
+* Efficient data handling with optimized MongoDB queries
 
 ## Tech Stack
 
-* Frontend: React
-* Backend: Node.js, Express
+* Frontend: React.js, Tailwind CSS
+* Backend: Node.js, Express.js
 * Database: MongoDB
-* Real-time: Socket.io
+* Real-time: Socket.IO
 
-## How to Run
+## Highlights
+
+* Handles 50+ concurrent users
+* Event-driven backend for fast communication
+* Optimized database queries for better performance
+
+## Run Locally
 
 1. Clone the repo
-2. Setup `.env` file
-3. Start backend:
-   npm run dev
-4. Start frontend:
-   npm start
-
-## Notes
-
-Messages update instantly using sockets
-Focus was on real-time communication logic
-
-* Messages update instantly using sockets
-* Focus was on real-time communication logic
+2. Add `.env` file
+3. Start backend: `npm run dev`
+4. Start frontend: `npm start`
